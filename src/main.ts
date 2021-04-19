@@ -19,3 +19,27 @@ const getFullName = (first: string, last: string): string => {
 };
 
 // getFullName(true, 500) you cannot do this because we assigned a type to our params.
+
+// INTERFACES
+interface UserInterface {
+  name: string;
+  age?: number; // this will allow the property to not be mandatory.
+  getMessage(): string;
+}
+
+const user: UserInterface = {
+  name: 'Tony',
+  age: 24,
+  getMessage() {
+    return `Hello my name is ${this.name}`;
+  },
+};
+
+const user2: UserInterface = {
+  name: 'Tyler',
+  getMessage() {
+    return `Hello my name is ${this.name}`;
+  },
+};
+
+console.log(user2.getMessage());

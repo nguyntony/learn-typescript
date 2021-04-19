@@ -30,4 +30,34 @@ Just like in js you are able to change the value of let-defined variables. Now i
 
 You can change the values of let-defined variable but in ts you can only change it if it is the same data type.
 
-`hi = 500` this will not work because we are trying to reassign the data type.
+`hi = 500` this will not work because we are trying to reassign the data type. After you create a variable in ts, that data type will remain and be consistent.
+
+### Functions 
+Just like how we can assign types to variables you can also assign them to the parameters that will be passed into the fn and you can also assign the type that the fn will return. 
+
+## Interfaces
+Imagine a scenario where you’re defining a an object that needs to have two properties. You can actually declare the types of the properties for that object, this will ensure that if you are creating multiple instances of the same object then it will need to have those properties and types
+
+This is where ts becomes difficult because you need to begin your project with some sort of architecture in mind, once you have figured this out, this will help you be able to have ‘safer’ less buggy code because when we are writing our code, we are anticipating what we need to return and pass, etc. 
+
+```
+interface User {
+  name: string;
+  age: number;
+}
+
+const user: User = {
+  name: 'Tony',
+  age: 24,
+};
+
+const user2: User = {
+  name: 'Tyler',
+};
+```
+You will get an error that user2 is missing the age attribute. If you wish to make age not mandatory, do this: add a ‘?’ Before the colon in the interface. `age?: number`
+
+Another advantage of using interfaces is that you will have access to autocomplete that could help catch issues prior to them happening. 
+
+### Class & Interface
+You may want to use classes in ts and the way to declare it is really similar, instead of using the reserved word ‘interface’ you will use the word ‘class’. If you have a User class and User interface, there will be name collision here. It is best to change the interface User to UserInterface / IUser
